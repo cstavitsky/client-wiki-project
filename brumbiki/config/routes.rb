@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'groups#index'
 
-  resources :users
+  resources :users, only: [:new, :create, :update, :destroy]
     resources :groups, shallow: true do
       resources :memberships
       resources :articles do
