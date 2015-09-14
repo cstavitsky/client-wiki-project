@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'groups#index'
+  root 'welcome#index'
 
   resources :users, only: [:new, :create, :update, :destroy]
     resources :groups, shallow: true do
@@ -12,6 +12,10 @@ Rails.application.routes.draw do
         resources :versions, only: [:index, :new, :create, :show]
       end
   end
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 
 
   # get 'groups/:group_id/memberships', to: 'memberships#index', as: 'memberships'
