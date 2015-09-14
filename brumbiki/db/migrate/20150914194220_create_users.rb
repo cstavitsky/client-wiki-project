@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :full_name
 
       t.timestamps null: false
+      t.index(:email, unique: true)
     end
   end
 end
