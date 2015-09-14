@@ -3,8 +3,22 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'groups#index'
 
+  resources :users
+    resources :groups, shallow: true do
+      resources :memberships
+      resources :articles do
+        resources :versions, only: [:index, :new, :create, :show]
+      end
+  end
+
+
+  # get 'groups/:group_id/memberships', to: 'memberships#index', as: 'memberships'
+  # get 'groups/:group_id/memberships/:id', to: 'memberships#show', as: 'membership'
+
+  # get 'groups/:group_id/memberships/:id/edit', to: 'memberships#edit', as: 'edit_membership'
+  # post 'groups/:group_id/memberships', to: 'memberships#create'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
