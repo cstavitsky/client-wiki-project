@@ -1,0 +1,9 @@
+<h1> Group Index Page </h1>
+
+<% @groups.each do |group| %>
+
+  <ul>
+    <li><a href="/groups/<%=group.id%>"><%=group.name%></a></li>
+  </ul>
+
+<% end %>
