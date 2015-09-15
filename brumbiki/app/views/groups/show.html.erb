@@ -1,0 +1,9 @@
+<h1><%= @group.name %> - Wiki Page</h1>
+<h3><%= link_to "Add an article", new_group_article_path(@group) %> </h3>
+<h3>Articles:</h3>
+<ul>
+<% @group.articles.each do |article| %>
+  <li><%= link_to article.versions.last.title %>
+    (updated <%= article.versions.last.created_at.strftime("%m/%d") %>)</li>
+<% end %>
+</ul>
