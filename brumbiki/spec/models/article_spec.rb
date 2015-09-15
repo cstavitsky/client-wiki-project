@@ -11,4 +11,8 @@ describe Article do
 
   end
 
+  context "associations" do
+    it "deleting an article should delete all associated content"
+  end
+
 end

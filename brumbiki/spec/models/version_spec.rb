@@ -10,7 +10,10 @@ describe Version do
 
 
   context "validations" do
+
     it "requires all fields"
+
+    it "checks that its parent article actually exists before beign created"
 
   end
 
@@ -25,8 +28,7 @@ describe Version do
   end
 
   context "administrator privileges" do
-    # honest question here--are we controlling this at the model level?  If so probably requires another column field.
-    it "only allows admin user to create the accepted version"
+
   end
 
 
