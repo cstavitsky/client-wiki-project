@@ -6,7 +6,6 @@ class CreateVersions < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.string :privacy_level
-
       t.timestamps null: false
     end
   end
