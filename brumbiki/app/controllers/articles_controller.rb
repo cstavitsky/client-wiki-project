@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  before_action :find_article, only: [:show]
   def index
   end
 
@@ -38,6 +38,11 @@ class ArticlesController < ApplicationController
   private
   def version_params
     params.require(:version).permit(:title, :body)
+  end
+
+
+  def find_article
+    @article = Article.find(params[:id])
   end
 
 end

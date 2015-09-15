@@ -1,5 +1,15 @@
+
 <h1><%=@latest_version.title%></h1>
 <p>
   <%= @latest_version.body %>
 </p>
+
+<div class="container">
+  <%= render template: 'versions/_version_show', locals: {version: @article.most_recent }  %>
+
+  <div class="more-info">
+  <%= link_to "Back to Group", group_path(@article.group) %>
+  <%= link_to "See All Versions", article_versions_path(@article) %>
+  </div>
+</div>
 
