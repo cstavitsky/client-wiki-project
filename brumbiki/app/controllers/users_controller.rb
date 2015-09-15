@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-        redirect_to root_path, notice: "Update successfull"
+        redirect_to root_path, notice: "Update successful"
     else
       render "edit"
     end
