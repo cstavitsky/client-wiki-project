@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20150914194333) do
     t.integer  "group_id"
     t.integer  "user_id"
     t.string   "access_level"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "status",       default: "pending"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,6 +4,7 @@ class CreateMemberships < ActiveRecord::Migration
       t.integer :group_id
       t.integer :user_id
       t.string :access_level
+      t.string :status, :default => "pending"
 
       t.timestamps null: false
     end
