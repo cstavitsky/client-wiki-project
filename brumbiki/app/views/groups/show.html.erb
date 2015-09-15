@@ -10,7 +10,7 @@
 <h3>Articles:</h3>
 <ul>
 <% @group.articles.each do |article| %>
-   <li><%= link_to article.versions.last.title, article_versions_path(article) %>
+   <li><%= link_to article.versions.last.title, article_path(article) %>
     (updated <%= article.versions.last.created_at.strftime("%m/%d") %>)</li>
 <% end %>
 </ul>
