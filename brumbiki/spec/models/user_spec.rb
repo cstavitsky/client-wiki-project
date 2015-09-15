@@ -6,10 +6,11 @@ describe User do
   let (:membership) {user.memberships.create!(group_id: 1, type: "member")}
   let (:super_user) {User.new(email: "yahweh@yahoo.com", full_name: "God", password: "testing")}
   let (:membership) {user.memberships.create!(group_id: 1, type: "admin")}
-  let (:article) {Article.new(group_id: 1)}
-  let (:version) {Version.new(article_id: 1, title: "Rules", body: "blah blah blah")}
 
-  context "with invalid user signup info" do
+  context "validations" do
+
+    it "should not allow multiple users with the same login info"
+
     it "should not allow a password with less than 6 characters" do
       user.password = "123"
       expect(user.valid?).to be_falsey
@@ -25,30 +26,6 @@ describe User do
     end
 
   end
-
-  context "group membership association" do
-    it "allows a user to join a new group through memberships" do
-      user.groups << group
-      expect(user.groups).to include(group)
-      expect(user.memberships.length).to eq(1)
-    end
-
-  context "version association" do
-    it "only allows user to create a new article version if a member of a group" do
-      impostor = User.new(email: "faker@faker.com", full_name: "Bubba", password: "testing")
-      expect{impostor.versions << version}.to raise_error
-    end
-
-    it "does not allow a use"
-  end
-
-
-
-  end
-
-
-
-
 
 
 end
