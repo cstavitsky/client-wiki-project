@@ -13,7 +13,7 @@ describe Group do
     it "has at least one administrator"
 
     it "allows for multiple administrators"
-    
+
   end
 
 
