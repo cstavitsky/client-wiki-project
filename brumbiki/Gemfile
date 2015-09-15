@@ -56,3 +56,7 @@ group :test do
   gem "launchy"
 
 end
+
+#bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
