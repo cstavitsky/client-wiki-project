@@ -1,4 +1,5 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
+
   def new
   end
 
@@ -6,13 +7,15 @@ class SessionsController < ActionController::Base
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      render 'welcome/index'
+      redirect_to root_url
     else
       render 'new'
     end
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 
 end
