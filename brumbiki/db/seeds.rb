@@ -74,7 +74,7 @@ User.find(1).versions.create(article_id: 4, title: Faker::Book.title, body: Fake
 User.find(1).versions.create(article_id: 4, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private" )
 User.find(2).versions.create(article_id: 4, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private" )
 Article.find(5).versions.create!(author_id: 7, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
-Article.find(5).versions.create!(author_id: 3, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
+Article.find(5).versions.create!(author_id: 8, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
 Article.find(6).versions.create!(author_id: 4, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
 Article.find(6).versions.create!(author_id: 4, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
 Article.find(6).versions.create!(author_id: 5, title: Faker::Book.title, body: Faker::Lorem.paragraphs(6), privacy_level: "private")
