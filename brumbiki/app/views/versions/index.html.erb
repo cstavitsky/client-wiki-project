@@ -1,0 +1,13 @@
+<div class="container">
+  <h1> All Versions Of "<%= @article.most_recent.title %>"</h1>
+  <ul>
+  <% @article.versions.each do |version| %>
+    <li> <%= link_to "#{version.title}", version_path(version) %>
+    <br>Created On: <%=version.format_date %></li>
+    <br>
+  <% end %>
+  <br>
+  <%= link_to "Back to Group", group_path(@article.group) %>
+  <%= link_to "Back to Article", @article %>
+</div>
+</div>
