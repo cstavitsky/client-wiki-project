@@ -5,7 +5,6 @@ class Version < ActiveRecord::Base
   validates :title, :presence => :true
   validate :article_exists
 
-
   def format_date
     month = self.created_at.month
     day = self.created_at.day
