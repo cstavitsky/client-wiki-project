@@ -1,6 +1,7 @@
 <div class ="container">
   <h1>Welcome, <%= current_user.full_name %>!</h1>
 
+
   <% if current_user.groups.length > 0 %>
     <p>Your Groups:</p>
 
@@ -22,4 +23,5 @@
     <p>You have no groups! Check out the link below and start requesting access now.</p>
  <% end %>
   <%= link_to "See All Brumbiki Groups", groups_path %><br>
+
 </div>
