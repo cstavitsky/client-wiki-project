@@ -7,6 +7,16 @@
       Sorry, your browser does not support inline SVG.
     </svg>
   </div>
+
+  <div id="group-members">
+    <h3> Current Members </h3>
+    <% @group.users.each do |user| %>
+    <ul>
+    <li><a href="mailto:<%= user.email %>"><%= user.full_name %></a></li>
+    </ul>
+    <% end %>
+  </div>
+
 <% else %>
   <%= form_for @membership, url: group_memberships_path(@group) do |f| %>
     <%= f.submit "Join This Group", html: {class: "btn btn-default btn-primary col-md-4" } %>
