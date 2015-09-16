@@ -12,7 +12,9 @@
     <h3> Current Members </h3>
     <% @group.users.each do |user| %>
     <ul>
+
     <li><a href="mailto:<%= user.email %>"><%= user.full_name %></a></li>
+
     </ul>
     <% end %>
   </div>
