@@ -7,15 +7,10 @@
       Sorry, your browser does not support inline SVG.
     </svg>
   </div>
-<% end %>
-
-<!-- <form action="/groups/<%= @group.id %>/memberships" method="post" >
-  <input type="submit" value="Join This Group" class= "btn btn-default btn-primary col-md-4" >
-</form> -->
-<% if !@group.has_member(current_user) %>
+<% else %>
   <%= form_for @membership, url: group_memberships_path(@group) do |f| %>
     <%= f.submit "Join This Group", html: {class: "btn btn-default btn-primary col-md-4" } %>
-  <% end %>
+  <% end %> 
 <% end %>
 
 <br>
