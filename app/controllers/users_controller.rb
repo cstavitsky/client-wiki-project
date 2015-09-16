@@ -9,7 +9,8 @@ class UsersController < ApplicationController
        @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to @user, notice: "User successfully created!"
+      flash[:success] = "Your account was successfully created!"
+      redirect_to @user
     else
       render "new"
     end
@@ -23,7 +24,8 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-        redirect_to root_path, notice: "Update successful"
+      flash[:success] = "You successfully updated your account!"
+        redirect_to root_path
     else
       render "edit"
     end
