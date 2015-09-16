@@ -18,7 +18,7 @@
   </div>
 
 <% else %>
-  <%= form_for @membership, url: group_memberships_path(@group) do |f| %>
+  <%= form_for @membership, url: group_memberships_path(@group), method: :post do |f| %>
     <%= f.submit "Join This Group", html: {class: "btn btn-default btn-primary col-md-4" } %>
   <% end %>
 <% end %>
@@ -28,7 +28,8 @@
 <h3>Articles:</h3>
 <ul>
 <% @group.articles.each do |article| %>
-   <li><%= link_to article.versions.last.title, article_path(article) %>
-    (updated <%= article.versions.last.created_at.strftime("%m/%d") %>)</li>
+   <li><%= link_to article.versions.last.title, article_path(article) %> - updated <%= article.versions.last.created_at.strftime("%m/%d") %> - <%= link_to "Edit article", new_article_version_path(article) %></li>
+
+
 <% end %>
 </ul>

@@ -6,9 +6,24 @@ class VersionsController < ApplicationController
   end
 
   def create
+    @version = Version.new(version_params)
+    @article = Article.find_by(id: params[:article_id])
+    @group = Group.find_by(id: @article.group_id)
+    @version.article_id = @article.id
+    p version_params
+    if @version.save
+      flash[:success] = "Your article was edited successfully."
+      redirect_to group_path(@group)
+    else
+      flash[:error] = "Invalid entry."
+      render 'new'
+    end
   end
 
   def new
+    p params
+    @article = Article.find_by(id: params[:article_id])
+    @version = @article.versions.last
   end
 
   def show
@@ -21,5 +36,10 @@ class VersionsController < ApplicationController
 
   def find_version
     @version = Version.find(params[:id])
+  end
+
+   private
+  def version_params
+    params.require(:version).permit(:title, :body)
   end
 end

@@ -11,8 +11,10 @@ class ArticlesController < ApplicationController
     @article.versions << @version
     if @version.save
       @article.save
+      flash[:success] = "Your new article was posted."
       redirect_to group_path(@group)
     else
+      flash[:error] = "Invalid entry."
       render 'new'
     end
   end
