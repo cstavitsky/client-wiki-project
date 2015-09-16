@@ -12,8 +12,10 @@ class VersionsController < ApplicationController
     @version.article_id = @article.id
     p version_params
     if @version.save
+      flash[:success] = "Your article was edited successfully."
       redirect_to group_path(@group)
     else
+      flash[:error] = "Invalid entry."
       render 'new'
     end
   end
