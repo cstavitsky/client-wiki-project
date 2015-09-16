@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-te-1.4.0.min
+//= require text-editor
 //= require bootstrap-sprockets
 //= require_tree .
-
-
+//= require turbolinks
