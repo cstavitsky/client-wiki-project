@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :current_user, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
        @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to root_path, notice: "User successfully created!"
+      redirect_to @user, notice: "User successfully created!"
     else
       render "new"
     end
