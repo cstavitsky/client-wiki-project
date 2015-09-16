@@ -17,17 +17,19 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-/* .form-container{
+.form-container{
   width: 1000px;
-  border: 1px solid gray;
   border-radius: 15px;
   text-align: center;
- }*/
+  background-color: #5B5F62;
+  opacity: 0.8;
+ }
 
 .form-actions {
     margin-left: 49%;
     background-color: transparent;
     text-align: center;
+    color: #2F3239;
 }
 
 .form-control{
@@ -37,5 +39,10 @@
 body {
   font-size: 24px;
   font-family: 'Varela Round', sans-serif;
-  background-image: url(../images/brumbackground.jpg) repeat;
+  background-image: url("http://i.imgur.com/ur2dq7b.jpg");
+  color: #FFFFFF;
+}
+
+input {
+  color: #2F3239;
 }
