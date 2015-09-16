@@ -1,0 +1,23 @@
+<h1>Edit <%=@article.versions.last.title%></h1>
+
+
+<%= form_for @version, url: article_versions_path(@article), method: :post, html: { class: "form-horizontal center form-container" } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Title:", class: "col-md-4 control-label" %>
+     <div class="col-md-4">
+          <%= f.text_field :title, class: "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, "Body:", class: "col-md-4 control-label" %>
+     <div class="col-md-4">
+          <%= f.text_area :body, class: "form-control" %>
+      </div>
+  </div>
+
+    <div class="form-actions">
+      <%= f.submit "Create article", class: "btn btn-default btn-primary col-md-4" %>
+    </div>
+
+<% end %>
