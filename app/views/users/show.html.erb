@@ -1,6 +1,6 @@
 <div class ="container">
   <h1>Welcome <%= current_user.full_name %> !</h1>
-  <p> Groups you are currently apart of! </p>
+  <p> Groups you are currently a part of! </p>
   <% current_user.groups.each do |group| %>
   <ul>
   <li><%= group.name %></li>
