@@ -3,7 +3,7 @@ class CreateVersions < ActiveRecord::Migration
     create_table :versions do |t|
       t.integer :article_id
       t.integer :author_id
-      t.string :title
+      t.string :title, :null => :false
       t.text :body
       t.string :privacy_level
       t.timestamps null: false
