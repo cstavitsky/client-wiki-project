@@ -5,8 +5,18 @@ class Version < ActiveRecord::Base
   validates :title, :presence => :true
   validate :article_exists
 
+
   def format_date
-    self.created_at.to_s[0..10]
+    month = self.created_at.month
+    day = self.created_at.day
+    year = self.created_at.year
+    if self.created_at.hour > 12
+      hour  = self.created_at.hour - 12
+      time = self.created_at.strftime("#{hour}:%M %p")
+    else
+      time = self.created_at.strftime("%H:%M %p")
+    end
+    "#{month}/#{day}/#{year} #{time}"
   end
 
   def article_exists
