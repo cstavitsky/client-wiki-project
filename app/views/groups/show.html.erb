@@ -19,7 +19,7 @@
 
 <% else %>
   <%= form_for @membership, url: group_memberships_path(@group), method: :post do |f| %>
-    <%= f.submit "Join This Group", html: {class: "btn btn-default btn-primary col-md-4" } %>
+    <%= f.submit "Join This Group", class: "btn btn-default btn-primary col-md-4" %>
   <% end %>
 <% end %>
 
