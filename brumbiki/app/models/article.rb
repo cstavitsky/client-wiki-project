@@ -10,4 +10,7 @@ class Article < ActiveRecord::Base
     self.group_id
   end
 
+  validates :group_id, presence: true
+  validates_numericality_of :group_id
+
 end
