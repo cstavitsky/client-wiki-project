@@ -9,8 +9,9 @@ class MembershipsController < ApplicationController
     # session[:user_id] = 2
     # p session[:user_id]
     # # p "USER ID:" + session[:user_id]
-    membership = current_user.memberships.new(group_id: params[:group_id])
-    if membership.save
+    @group = Group.find_by(id: params[:group_id])
+    @membership = current_user.memberships.new(group_id: params[:group_id], user_id: current_user.id, access_level: "non-member")
+    if @membership.save
       redirect_to root_path
     else
       render 'groups/show'

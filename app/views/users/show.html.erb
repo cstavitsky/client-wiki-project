@@ -1,10 +1,14 @@
 <div class ="container">
   <h1>Welcome <%= current_user.full_name %> !</h1>
-  <p> Groups you are currently a part of! </p>
-  <% current_user.groups.each do |group| %>
-  <ul>
-  <li><%= group.name %></li>
-  </ul>
-  <% end %>
+  <% if current_user.groups.length > 0 %>
+    <p> Groups you are currently a part of! </p>
+    <% current_user.groups.each do |group| %>
+    <ul>
+    <li><%= group.name %></li>
+    </ul>
+    <% end %>
+   <% else %>
+    <p>You have no groups! Check out the link below and start requesting access now.</p>
+   <% end %>
   <%= link_to "Go to Groups", groups_path %><br>
 </div>
