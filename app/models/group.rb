@@ -11,6 +11,6 @@ class Group < ActiveRecord::Base
   end
 
   def has_member(user)
-    !(self.users.where(id: user.id).empty?)
+    !(self.users.find_by(id: user.id).empty?)
   end
 end
