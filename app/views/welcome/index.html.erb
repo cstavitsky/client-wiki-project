@@ -1,11 +1,24 @@
+<div id="home-page-container">
+  <div id="site-title">brumbiki</div>
+  <% if current_user %>
+    <div class="index-buttons">
+      <h3>Hello <%= current_user.full_name %>!</h3>
+    </div>
+    <div class="index-buttons">
+      <%= link_to "Log Out", logout_path, class: "btn btn-default btn-primary col-md-4" %><br>
+    </div>
+    <div class="index-buttons">
+      <%= link_to "Go to Groups", groups_path, class: "btn btn-default btn-primary col-md-4" %><br>
+    </div>
+  <% else %>
+    <div class="index-buttons">
+      <%= link_to "Log In", login_path , class: "btn btn-default btn-primary col-md-4" %><br>
+    </div>
+    <div class="index-buttons">
+      <%= link_to "Sign Up", new_user_path, class: "btn btn-default btn-primary col-md-4" %><br>
+    </div>
+  <% end %>
+</div>
 
-<% if current_user %>
-  <h1>Welcome, <%= current_user.full_name %>!</h1>
-  <%= link_to "Log Out", logout_path %><br>
-<% else %>
-  <%= link_to "Log In", login_path %><br>
-  <%= link_to "Sign Up", new_user_path %><br>
-<% end %>
-<%= link_to "Go to Groups", groups_path %><br>
 
 
