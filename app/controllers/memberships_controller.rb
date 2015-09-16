@@ -12,6 +12,7 @@ class MembershipsController < ApplicationController
     @group = Group.find_by(id: params[:group_id])
     @membership = current_user.memberships.new(group_id: params[:group_id], user_id: current_user.id, access_level: "non-member")
     if @membership.save
+      flash[:warning] = "Thank you for requesting membership to <%=@group.name%>. Your membership is pending approval."
       redirect_to root_path
     else
       render 'groups/show'
