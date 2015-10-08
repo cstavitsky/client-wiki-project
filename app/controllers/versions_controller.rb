@@ -38,7 +38,6 @@ class VersionsController < ApplicationController
     @version = Version.find(params[:id])
   end
 
-   private
   def version_params
     params.require(:version).permit(:title, :body)
   end
