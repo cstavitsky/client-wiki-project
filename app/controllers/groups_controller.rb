@@ -5,6 +5,15 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @group = Group.new(group_params)
+    if @group.save
+      flash[:success] = "Your group
+      was created successfully."
+      redirect_to group_path(@group)
+    else
+      flash[:error] = "Invalid entry"
+      render 'new'
+    end
   end
 
   def new
@@ -24,4 +33,7 @@ class GroupsController < ApplicationController
   def destroy
   end
 
+  def group_params
+    params.require(:group).permit(:name)
+  end
 end
