@@ -1,14 +1,13 @@
-<h1> List of all Groups </h1>
-<h4>Click a group to view its page and request access</h4>
+<div id="group-index-container">
+  <h1>All Groups</h1>
+  <h4>Click on a group to see its articles and request access</h4>
 
+  <% @groups.each do |group| %>
+    <ul>
+      <li><a href="/groups/<%=group.id%>"><%=group.name%></a></li>
+    </ul>
+  <% end %>
+  <p> <%= link_to "Add A New Group", new_group_path %></p>
+  <p><%= link_to "Your Profile Page", current_user %><p>
+</div>
 
-<% @groups.each do |group| %>
-
-  <ul>
-    <li><a href="/groups/<%=group.id%>"><%=group.name%></a></li>
-  </ul>
-
-<% end %>
-
-<p> <%= link_to "Add A New Group", new_group_path %></p>
- <p><%= link_to "Your Profile Page", current_user %><p>
